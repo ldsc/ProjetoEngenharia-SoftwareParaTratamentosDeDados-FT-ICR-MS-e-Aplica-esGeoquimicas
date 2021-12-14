@@ -1,8 +1,0 @@
-set xlabel 'DBE'
-set ylabel 'Abundância Relativa (%)'
-set terminal png font ", 9"
-set style data histograms
-set style fill solid
-set title 'Teste'
-set output './output/Teste-no2_intensidade_por_dbe.png'
-plot './output/plot.dat' using 2:xtic(1) title 'NO2 Intensidade por DBE' ls 1
