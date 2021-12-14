@@ -1,0 +1,10 @@
+*.docx
+*.exe
+*.o
+*.txt
+.vscode/
+*.zip
+input/
+output/
+*.xmi
+teste/
