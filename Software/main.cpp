@@ -1,3 +1,8 @@
+//Universidade Estadual Norte Fluminense Darcy Ribeiro
+//LENEP - Programação Prática
+//Professor: André Bueno
+//Alunos: Jimmy Barreto e Lucas Hespanhol
+
 #include <iostream>
 #include "C_SimuladorTratamentoDados_FT_ICRMS.hpp"
 
