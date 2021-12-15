@@ -1,0 +1,2678 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
+\maintain_unincluded_children false
+\language brazilian
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Elaboração}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Elaboração
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Elaboração
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Elaboração"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste capítulo, é realizada a análise de domínio, além da identificação
+ dos assuntos e a diagramação de pacotes.
+\end_layout
+
+\begin_layout Section
+Análise de domínio
+\end_layout
+
+\begin_layout Standard
+O desenvolvimento deste software tem como foco principal a manipulação de
+ dados gerados nas análises de espectrometria de massas (MS), para a petroleômic
+a, de maneira a suprir a falta de software livre nessa área, sobretudo diante
+ da manipulação de grande volume de dados.
+ É importante salientar que as técnicas modernas de análise química geram
+ uma grande quantidade de informações, que precisam de maiores esforços
+ dos pesquisadores para que se revele as características químicas das amostras
+ analisadas.
+ A complexidade do tratamento desses dados pode consumir muito tempo dos
+ pesquisadores.
+ 
+\end_layout
+
+\begin_layout Standard
+Os aspectos teóricos e práticos da geoquímica do petróleo são importantes
+ para solucionar diversos problemas encontrados nas companhias de petróleo,
+ sendo a caracterização química fundamental para diversas áreas como a exploraçã
+o, o processo de refino, a qualidade do produto final, bem como o controle
+ ambiental.
+ Dessa maneira, a petroleômica tem sido usada na geoquímica do petróleo
+ em uma ampla variedade de investigações, como a identificação dos níveis
+ de maturidade, biodegradação, acidez total (TAN), corrosividade, densidade,
+ inferir o ambiente deposicional , entre outros.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HugheyRodgersMarshallEtAl2004,OldenburgBrownBennettEtAl2014,CuiJingweiJian2014,VazAbdelnurRochaEtAl2013,KimStanfordRodgersEtAl2005,LiaoShiHsuEtAl2012,HugheyGalassoZumberge2007,VazSilvaKlitzkeEtAl2013"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Formulação teórica
+\end_layout
+
+\begin_layout Standard
+O petróleo é uma mistura complexa de compostos que incluem hidrocarbonetos
+ saturados e aromáticos, resinas, asfaltenos, pequenas quantidades de níquel,
+ vanádio, diversos metais, entre outros (Tissot & Welte, 1984)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TissotWelte1984"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "VanHammeSinghWard2003"
+literal "false"
+
+\end_inset
+
+.
+ Dentre esses compostos, citam-se os biomarcadores, ou fósseis geoquímicos,
+ que são originados de organismos vivos e fornecem relevantes informações
+ sobre sua origem, paleoambiente deposicional, evolução térmica, caminhos
+ de migração, correlação óleo-rocha geradora e índice de biodegradação de
+ petróleo e/ou de matéria orgânica solúvel extraída de rochas geradoras
+ (Brock 
+\shape italic
+et al
+\shape default
+., 2003; Neto, 1984; Peters & Moldonwan, 1993; Philp, 1985; Restlé, 1994)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AquinoNeto1984,BrocksBuickSummonsEtAl2003,BrocksLoveSnapeEtAl2003,PetersMoldowan1993,Philp1985,Restle1994"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Os biomarcadores distribuem-se dentro de várias classes de compostos saturados
+ (alcanos lineares e ramificados, isoprenóides, cicloalcanos, terpanos bi-,
+ tri-, tetra- e pentacíclicos e, esteranos), aromáticos (mono- e poliaromáticos)
+ e ácidos (normalmente derivados da biodegradação de compostos saturados
+ e aromáticos), as quais são analisadas individualmente para obtenção de
+ parâmetros geoquímicos que podem ser aplicados na caracterização de amostras
+ de interesse geológico.
+\end_layout
+
+\begin_layout Standard
+Os avanços na área da cromatografia nas décadas de 60 e 70 proporcionaram
+ um grande crescimento da geoquímica orgânica molecular.
+ Os biomarcadores saturados, por compreenderem a frações mais abundantes,
+ foram, e ainda são, os mais comumente estudados e, portanto, gerou-se um
+ grande volume de conhecimento sobre sua aplicabilidade, como indicadores
+ geoquímicos.
+ Porém, dependendo do nível de maturidade de que a rocha geradora foi submetida,
+ não é possível encontrar os biomarcadores, ou não é possível chegar a uma
+ conclusão quanto sua maturidade ou via de migração, dificultando o processo
+ de caracterização.
+ Por isso, são necessárias novas abordagens e uso de técnicas mais modernas,
+ como a espectrometria de massas de ressonância ciclotrônica de íons por
+ transformada de Fourier (FT-ICR MS).
+\end_layout
+
+\begin_layout Standard
+O uso da técnica FT-ICR MS vem permitindo o avanço dos estudos da parte
+ polar do petróleo, e embora a importância dos compostos heteroatômicos
+ ser reconhecida há algum tempo, pouco se compreende ainda sobre eles.
+ As espécies NSO apresentam grande potencial no estudo da migração dos óleos
+ para a definição e compreensão de propriedades e processos geoquímicos,
+ como biodegradação, migração, avaliações de fáceis orgânicas.
+ Estes compostos apresentam uma gama de propriedades físico-químicas muito
+ maior em comparação com os hidrocarbonetos, e tem incentivando algumas
+ pesquisas.
+ estas pesquisas foram limitadas ao longo das duas últimas décadas pela
+ falta de ferramentas analíticas adequadas (Oldenburg 
+\shape italic
+et al.
+\shape default
+, 2014)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OldenburgBrownBennettEtAl2014"
+literal "false"
+
+\end_inset
+
+.
+ Porém, atualmente, avanços recentes, tais como espectrometria de massas
+ de altíssima resolução e exatidão , permitem a análise e estudo dessas
+ espécies à nível molecular.
+ Para entender a peculiaridade dos dados obtidos por um espectrômetro de
+ massa e compreender o tratamento de dados, é adequado que se identifique
+ algumas características instrumentais dessa técnica (Schmidt 
+\shape italic
+et al
+\shape default
+., 2015; Marshall & Rodgers, 2004)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schmidt2015"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MarshallRodgers2004"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Espectrômetro de massas
+\end_layout
+
+\begin_layout Standard
+O Espectrômetro de Massas é um equipamento utilizado para identificar os
+ diferentes átomos que compõem uma substância, ou seja, ele realiza uma
+ análise química qualitativa e quantitativa.
+ O equipamento tem como partes principais uma fonte de íons, um analisador
+ de massas para fazer a seleção e um detector dos íons desviados.
+ Seu princípio de funcionamento é de seleção de massas por desvio num campo
+ magnético, para isso as moléculas da amostra precisam ser previamente ionizadas
+ e, posteriormente, há uma discriminação dos íons gerados pela razão de
+ sua massa com a sua carga (m/z) (Oyarzabal 
+\shape italic
+et al
+\shape default
+., 2013)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OyarzabalFeijo2013"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/Espectrometrica.jpg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema geral do espectrômetro de massas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O sistema de ionização pode, ou não, estar submetido a uma baixíssima pressão,
+ mas o analisador e o sistema de detecção são estrategicamente construídos
+ para atuar em pressões inferiores a 10–5 mbar (Romão, 2010)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Romaoothers2010"
+literal "false"
+
+\end_inset
+
+.
+ A baixíssima pressão minimiza colisões entre os íons formados com as moléculas
+ que compõe o ar.
+\end_layout
+
+\begin_layout Standard
+A técnica vem sofrendo constantes melhorias instrumentais em cada etapa,
+ seja na introdução de amostra, na fonte de ionização, no analisador (ou
+ filtro de massa), e nos detectores que são constantemente otimizados.
+ Das melhorias instrumentais citadas, sobressaem as que envolvem o analisador
+ de massas e a fonte de íons.
+ Elas são áreas de grande impacto para a petroleômica, pois contribuem para
+ a simplificação do processamento de dados em MS (Perreira 
+\shape italic
+et al
+\shape default
+., 2013; Corilo, 2011)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PereiraSimasCoriloEtAl2013"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "corilo2011petroleomica"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Injeção de amostra
+\end_layout
+
+\begin_layout Standard
+A espectrometria de massas pode atuar com infusão direta de amostra ou hifenada
+ com diferentes técnicas de separação como a LC-MSLC-MS (do inglês, Liquid
+ Chromatography-Mass Spectrometry) e GC-MS (do inglês, Gas chromatography–
+ mass spectrometry).
+ Todos esses meios têm sido usados para caracterização abrangente de amostras
+ complexas.
+ Em especial o petróleo bruto e seus constituintes mais pesados requerem
+ metodologias mais sofisticadas de introdução de amostras.
+ A grande variedade de metodologias possíveis usando MS deve-se, principalmente,
+ aos diferentes tipos de fontes de ionização aplicados em diferentes amostras
+ e espécies de interesse.
+ Em tratamento de dados de MS, conhecer a natureza dos íons gerados pela
+ fonte de ionização é otimizar todo o processo de atribuição de fórmulas
+ químicas por reduzir/otimização o banco de dados de espécies teóricas (Zhan
+ & Fenn, 2000)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZhanFenn2000"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Fontes de ionização
+\end_layout
+
+\begin_layout Standard
+A função principal da fonte de íons é fornecer espécies na fase gasosa ou
+ transferir espécies iônicas em solução para a fase gasosa.
+ As considerações mais importantes desse processo são a energia interna
+ transferida e as características físico-químicas do analito (Romão, 2010)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Romaoothers2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Durante o aperfeiçoamento da técnica de MS, inúmeros métodos geradores de
+ íons foram propostos.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Algumas-fontes-de"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ traz alguns deles e suas aplicações diante das características do analito,
+ como a massa molecular e a polaridade da análise em MS (+/–) (Neto et al.,2010)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NetoScarminioBruns2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/Fonte de ionizacao.jpg
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Algumas-fontes-de"
+
+\end_inset
+
+Algumas fontes de ionização a pressão atmosférica (API): Ionização e dessorção
+ por laser assistida por matriz (MALDI); Fotoionização a pressão atmosférica
+ (APPI); Eletrospray (ESI); Ionização por elétrons (EI); Ionização química
+ a pressão atmosférica (APCI).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A aplicabilidade dessas fontes compreende desde moléculas apolares e voláteis,
+ como impacto de elétrons (sigla EI, do inglês, Electron Ionization); passando
+ por moléculas polares e de alta massa molar, como a ionização por eletrospray
+ (sigla ESI, do inglês, Eletrospray Ionization) e também a dessorção e ionização
+ por laser favorecida por matriz (sigla MALDI, do inglês, Matrix Assisted
+ Lazer Desorption Ionization); até técnicas de ionização ambiente que, embora
+ não estejam ilustradas na Figura 3, tem o seu uso crescente devido a sua
+ simplicidade e praticidade na introdução da amostra.
+\end_layout
+
+\begin_layout Standard
+As aplicações dessas fontes de íons podem ser restringidas em algumas matrizes,
+ como no caso da EI e a CI, as quais são energéticas o suficiente para causar
+ fragmentações extensivas, podendo dificultar a visualização do pico do
+ íon molecular, não sendo indicada para análises do petróleo.
+ Por outro lado, outros métodos de ionização menos energéticos, como a Ionização
+ por Eletrospray, Ionização química a pressão atmosférica (sigla APCI, do
+ inglês, Atmospheric Pressure Chemical Ionization) e Fotoionização a pressão
+ atmosférica (sigla APPI, do inglês, Atmospheric Pressure Photoionization
+ Ionization) proporcionam íons sem excesso de fragmentação, o que facilita
+ a construção do banco de dados em função das espécies esperadas.
+\end_layout
+
+\begin_layout Standard
+Em destaque, a fonte ESI possui a habilidade de ionizar eficientemente as
+ moléculas de massa molecular maiores (espécies multi-carregadas), de alta
+ polaridade e de grande complexidade estrutural.
+ Esse tipo de fonte de ionização merece destaque por empregar baixa energia
+ na ionização, ocasionando baixa fragmentação de moléculas da amostra.
+ Como consequência, os espectros de massas são menos complexos em relação
+ as demais fontes, facilitando a identificação de diferentes classes de
+ compostos presentes, principalmente em amostras de petróleo sem separação
+ cromatográfica prévia.
+ No entanto, a eficiência das análises também se deve a capacidade que o
+ espectrômetro possui ao separar milhares de íons, e esse feito se deve
+ aos analisadores de massas (Dalmaschio et al., 2014; Perreira et al., 2014;
+ Smith et al.,2018)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DalmaschioMalacarneAlmeidaEtAl2014,PereiraVaniniOliveiraEtAl2014,SmithPodgorskiRodgersEtAl2018"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Analisadores
+\end_layout
+
+\begin_layout Standard
+Os íons formados pela fonte de ionização são conduzidos para os analisadores
+ de massas, que são os responsáveis por discriminar os íons formados.
+ Existem vários tipos com diferentes eficiências de separação.
+ No entanto, os princípios físicos que regem o seu funcionamento são os
+ responsáveis por uma melhor discriminação das razões m/z.
+ Esses princípios afetam o poder de resolução e exatidão dos espectros obtidos
+ (Moraes et al., 2003) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "moraes2003espectrometria"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A resolução de um analisador de massas deve ser entendida como a capacidade
+ de distinção de sinais de razões m/z próximos.
+ Por outro lado, a exatidão indica o quão “próximo” o valor experimental
+ obtido está do valor teórico verdadeiro (Perreira et al., 2013)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PereiraSimasCoriloEtAl2013"
+literal "false"
+
+\end_inset
+
+.
+ Quanto maior o poder de resolução, mais complexo será o espectro para uma
+ mesma amostra.
+\end_layout
+
+\begin_layout Standard
+Analisadores como os de aprisionamento de íons IT (do inglês, Iontrap),
+ os de tempo de voo TOF (do inglês, Time-Of-Flight) e ainda, o difundido
+ orbitrap (OT), apresentam excelentes resoluções (Dalmaschio et al.,2014)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DalmaschioMalacarneAlmeidaEtAl2014"
+literal "false"
+
+\end_inset
+
+.
+ No entanto, o analisador de ressonância ciclotrônica de íons ICR (do inglês,
+ Ion Cyclotron Resonance) proporciona extrema resolução e exatidão, quando
+ comparado com os outros anteriormente citados, principalmente quando munido
+ previamente do analisador unitário LQT (do inglês, Linear Quadrupole Ion
+ Trap) (Comisarow et al,2011; Savory et al., 2011) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Comisarow1974,Savory2011"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A resolução é muito importante em MS e as abordagens no tratamento de dados
+ do espectro.
+ A Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ilustração-da-resolução"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+a, ilustra um pico mal resolvido oriundo de um equipamento cuja resolução
+ é unitária (como o monoquadrupolo).
+ Neste caso, há somente a massa do íon calculada levando em consideração
+ os isótopos mais abundantes, ou seja, a massa nominal.
+ A relação m/z= 249 pode ser satisfeita com três fórmulas moleculares: C20H9
+ +, C19H7N+ e C13H19N3O2 +, ou seja, para um único pico, há 3 fórmulas distintas
+ (Romão, 2010)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Romaoothers2010"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/resolução01.jpg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ilustração-da-resolução"
+
+\end_inset
+
+Ilustração da resolução em analisadores de massa com (a) resolução unitária
+ e (b) alta resolução.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O desenvolvimento instrumental proporcionou novas tecnologias de analisadores,
+ como o FT-ICR e Orbitrap.
+ Com esses analisadores, é possível medir a massa exata levando em conta
+ os isótopos mais abundantes.
+ Desta forma, cada sinal m/z da Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ilustração-da-resolução"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+b podem ser distinguidos.
+\end_layout
+
+\begin_layout Standard
+Quanto maior o campo magnético, maior a frequência ciclotrônica e, consequenteme
+nte, maior será o poder de resolução.
+ Como mostra a Tabela
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Poder-de-Resolução"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, o analisador FT-ICR mais atual continua sendo uma boa opção em poder de
+ resolução para o mesmo valor de m/z.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Poder-de-Resolução"
+
+\end_inset
+
+Poder de Resolução em m/z=400 para os principais analisadores de altíssima
+ resolução.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Orbitrap (Standard)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+FT-ICR (7, 2 Tesla)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+MegaOrbitrap
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+FT-ICR (21 Tesla)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Resolução mz = 400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+109902 (a)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+337100 (a)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+841004 (a)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2700000 (b)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por se tratar de duas técnicas de altíssima resolução, atualmente tem-se
+ difundido a sigla HRMS (do inglês, High Resolution Mass Spectrometry).
+ Com elas, a análise de petróleo e derivados foram impulsionadas, o que
+ é contemplado em diversos trabalhos científicos.
+\end_layout
+
+\begin_layout Standard
+No entanto, vale destacar que o tempo de processamento dos espectros de
+ HRMS com assimilações de fórmulas químicas, geralmente supera as etapas
+ de preparo da amostra e obtenção dos espectros, mesmo com a possibilidade
+ de infusão direta da mesma.
+ Nesse sentido, os programas computacionais auxiliam no processamento espectral
+ desses espectros e na elucidação da composição química das amostras.
+\end_layout
+
+\begin_layout Subsection
+Petroleômica por FT-ICR MS
+\end_layout
+
+\begin_layout Standard
+Nessa perspectiva, surge a petroleômica como ciência usada para investigação
+ de novos indicadores moleculares do petróleo e seus derivados, estudando
+ de forma aprofundada as propriedades e a reatividade de um óleo específico,
+ proporcionando maior eficiência e redução de custos desde a exploração
+ até o refino.
+ As técnicas modernas de MS possibilitam a análise de petróleo com rapidez
+ (<7 minutos) e eficiência (Corilo, 2011; Marshall & Rodgers; 2004) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "corilo2011petroleomica,MarshallRodgers2004"
+literal "false"
+
+\end_inset
+
+.
+ Com ela, milhares de moléculas apolares (hidrocarbonetos) e polares (N,
+ S e O) foram avaliadas, inclusive em óleos mais pesados.
+ Inicialmente, o espectrômetro de massas fornece o espectro de massas como
+ o da Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Espectro-de-massas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, pela distribuição m/z, em um perfil gaussiano podendo ser convertido ao
+ modo centroide (barras centradas na média).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/Espectro.jpg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Espectro-de-massas"
+
+\end_inset
+
+Espectro de massas de petróleo gerado a partir de FT-ICR-MS.
+ Fonte: Adaptado de Marshall & Rodgers (2004)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A união entre a altíssima resolução dos analisadores modernos e amostras
+ de petróleo permite a identificação de espécies isobáricas que diferem
+ em massa em < 3 mDa com altíssima precisão de massa (erro de massa superior
+ a 300 ppb).
+ Nesse aspecto, os espectros chegam a ter entre 10 a 20 mil picos possíveis
+ de atribuição.
+\end_layout
+
+\begin_layout Standard
+Desta forma, nas análises de compostos em petróleo, são usados softwares
+ que auxiliam no processamento da grande quantidade de sinais do espectro.
+ Esses programas fazem um grande número de interações computacionais ao
+ atribuir cada razão m/z (do espectro) a uma fórmula (de um banco de dados)
+ com confiabilidade.
+ Essa atribuição é assistida pela exatidão da massa (em ppm) que, quanto
+ menor, mais próximas estão as massas teórica e experimental (Mckenna et
+ al.,2010)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mckenna2010heavy"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As moléculas atribuídas são organizadas em classes de seus principais heteroátom
+os (
+\color black
+
+\begin_inset Formula $N$
+\end_inset
+
+, 
+\begin_inset Formula $NO$
+\end_inset
+
+, 
+\begin_inset Formula ${\color{black}O}_{{\color{black}2}}$
+\end_inset
+
+, 
+\begin_inset Formula $NS$
+\end_inset
+
+
+\color inherit
+) e de acordo com seu grau de insaturação/ciclização e seu número de carbonos.
+ Com isso, se obtém informações mais valiosas sobre a amostra de petróleo,
+ o que otimiza o seu processamento de extração e refino (Mashall & Rodgers,
+ 2004; Salmaschio et al., 2014)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MarshallRodgers2004,DalmaschioMalacarneAlmeidaEtAl2014"
+literal "false"
+
+\end_inset
+
+Nesse sentido, a MS é uma poderosa técnica analítica capaz de determinar
+ a composição elementar de matrizes complexas, como as de petróleo, com
+ extrema rapidez e eficiência.
+\end_layout
+
+\begin_layout Subsection
+Espectrometria de Massas com Ionização por Eletrospray (MS-ESI)
+\end_layout
+
+\begin_layout Standard
+Os recentes avanços em espectrometria de massas com alto poder de resolução
+ (FT-ICR MS, LTQ Orbitrap XL) aliados à seletividade do processo de ionização
+ por eletrospray (ESI), tem permitido analisar os componentes da fração
+ ácida presente no petróleo por meio da determinação da sua composição elementar
+, de forma precisa, rápida e sem necessitar de derivatização da amostra,
+ análises estas conhecidas como petroleômica (caracterização do petróleo
+ a nível molecular) (Corilo, 2011)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "corilo2011petroleomica"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Tratamento e interpretação de Dados obtidos na Análise Petroleômica
+\end_layout
+
+\begin_layout Standard
+O alto poder de resolução da técnica de espectrometria de massas apresentada
+ anteriormente permite assinalar um único composto a cada pico no espectro
+ de massas obtido.
+ As espécies ácidas são então caracterizadas por sua classe (conteúdo heteroatôm
+ico, 
+\begin_inset Formula ${\color{black}N_{n}O_{o}S_{s}}$
+\end_inset
+
+), tipo ou DBE (Double Bond Equivalent), número de anéis mais número de
+ duplas ligações, e número de carbono (Smith et al., 2008)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SmithPodgorskiRodgersEtAl2018"
+literal "false"
+
+\end_inset
+
+.
+ O DBE de um composto pode ser calculado teoricamente usando-se a Equação
+ 1.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+{\color{black}DBE=C-\frac{H}{2}+\frac{N}{2}+1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde C é o número de carbonos, H é o número de hidrogênios e N é o número
+ de nitrogênios.
+ Por exemplo, ao calcularmos o valor de DBE para o ácido terpanóico bicíclico
+ de fórmula molecular 
+\begin_inset Formula ${\color{black}C_{11}H_{18}O_{2}}$
+\end_inset
+
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Estrutura-molecular-do"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), utilizando a equação (1) mencionada anteriormente, encontramos um valor
+ de DBE = 3.
+ Isto significa que essa molécula é classificada como DBE 3 com 11 átomos
+ de carbono.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/acido_DBE.jpg
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Estrutura-molecular-do"
+
+\end_inset
+
+Estrutura molecular do ácido terpanóico bicíclico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para interpretação dos dados obtidos da técnica analítica, utilizam-se diagramas
+ DBE 
+\emph on
+versus
+\emph default
+ número de carbono para as diferentes classes heteroatômicas (
+\begin_inset Formula ${\color{black}N_{n}O_{o}S_{s}}$
+\end_inset
+
+) , que são perfis da variação composicional destas classes.
+ Como exemplo, tem-se o perfil da classe 
+\begin_inset Formula ${\color{black}O}_{{\color{black}2}}$
+\end_inset
+
+ apresentado na Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-com-DBE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, que representa a variação composicional de espécies ácidas (Smith et al.,
+ 2008)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "smith2008characterization"
+literal "false"
+
+\end_inset
+
+.
+ A escala de cores à direita da Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-com-DBE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ representa a intensidade normalizada destas espécies ácidas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/DBE_02.jpg
+	lyxscale 70
+	scale 75
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-com-DBE"
+
+\end_inset
+
+Diagrama com DBE 
+\emph on
+versus
+\emph default
+ número de carbono, mostrando a variação composicional da classe 
+\begin_inset Formula ${\color{black}O}_{{\color{black}2}}$
+\end_inset
+
+ em uma amostra de petróleo (modificado de OLDENBURG 
+\shape italic
+et al.
+\shape default
+, 2011).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existem alguns parâmetros petroleômicos retratados na literatura que são
+ utilizados para compor o programa.
+ Com relação à maturidade térmica, alguns trabalhos já utilizaram as análises
+ por FT-ICR MS com êxito para diferenciar níveis de maturidade.
+ Hughey 
+\shape italic
+et al.
+
+\shape default
+ (2004), observou claras diferenças na distribuição das classes heteroatômicas
+ e nos tipos de compostos dentro de cada classe para óleos de diferentes
+ níveis de maturidade térmica da Bacia do Mississippi.
+ Na Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distribuições-das-classes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ abaixo é possível observar a influencia da maturidade na distribuição das
+ classes de compostos dos óleos dos campos de Toxey e Turkey Creek (Hughey
+ et al., 2004)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HugheyRodgersMarshallEtAl2004"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/1mono.jpg
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distribuições-das-classes"
+
+\end_inset
+
+Distribuições das classes de compostos encontrados nos óleos dos campos
+ de Toxey e Turkey Creek, normalizados para 100%.
+ Modificado de (HUGHEY 
+\shape italic
+et al.
+\shape default
+, 2004).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste estudo, os autores mostraram que com o aumento da maturidade, a relativa
+ quantidade de compostos sulfurados e oxigenados diminui, enquanto a aromatizaçã
+o dos compostos aumenta e o número de carbonos alquilados diminui.
+ Oldenburg 
+\shape italic
+et al.
+
+\shape default
+ (2014) também encontrou resultados similares ao analisar nove amostras
+ de óleos produzidos no mar do Norte com diferente níveis de maturidade,
+ onde a abundância relativa de todas as classes heteroatômicas detectadas
+ diminuíram sistematicamente com o aumento da maturidade, e a aromaticidade
+ dos compostos aumentou com o aumento da maturidade (aumento do número de
+ DBE dos compostos em geral).
+ Tal fato pode ser observado na Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distribuição-da-classeN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, onde se faz uma distribuição das classes 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+
+\color inherit
+ analisadas com ESI no modo negativo.
+ É possível ter uma estimativa das variações relativas das concentrações
+ aparente dos grupos de DBE nos óleos totais, e é notável a diminuição relativa
+ das espécies 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+
+\color inherit
+ com o aumento da maturidade.
+ 
+\end_layout
+
+\begin_layout Standard
+Considerando apenas as espécies 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+
+\color inherit
+ com DBE 9, que mais provavelmente estão associadas a carbazóis alquilados,
+ sua abundância relativa pode ser claramente vista diminuindo com o aumento
+ da maturidade do óleo.
+ Simultaneamente, com o esgotamento relativo das concentrações do grupo
+ DBE 9, os componentes da classe de heteroátomo 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+
+\color inherit
+ com números de DBE > 12 estão aumentando, em uma base relativa, com o aumento
+ da maturidade do óleo, especialmente para os pseudo-homólogos somados do
+ grupo DBE 15.
+ Os compostos com DBE 15 não são identificados, mas especula-se que sejam
+ mais provavelmente dibenzocarbazóis alquilados.
+ Os DBE 9, 12 e 15 são provavelmente predominantemente carbazóis [C], benzocarba
+zóis [BC] e dibenzocarbazós [DBC].
+ Baseado nisso sugere-se a distribuição destes compostos em um diagrama
+ ternário para avaliar a maturidade.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/2-I Mono.jpg
+	lyxscale 32
+	clip
+	scale 23
+
+\end_inset
+
+
+\begin_inset External
+	template RasterImage
+	filename imagens/2-II Mono.jpg
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distribuição-da-classeN"
+
+\end_inset
+
+Distribuição da classe 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+
+\color inherit
+ medida no modo iônico negativo ESI.
+ Os dados são exibidos de duas maneiras: I.
+ Como um plano de "Intensidade" de íons (de cada grupo DBE individual de
+ Compostos, plotados versus número DBE); II.
+ Como um gráfico ” Fração de Classe ” (soma das intensidades de todos os
+ componentes dentro de um grupo DBE normalizado para a soma de todos os
+ picos atribuídos a abundância de uma classe (heteroatômica) medida em um
+ modo de ionização.
+ Modificado de (OLDENBURG 
+\shape italic
+et al.
+\shape default
+, 2014).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ainda de acordo com Oldenburg 
+\shape italic
+et al.
+\shape default
+, a classe 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+
+\color inherit
+, analisada por ESI no modo positivo, é dominada por espécies piridínicas
+ alquiladas com base na ocorrência comum destas em óleos brutos, em que
+ os compostos com DBE 7, DBE 10 e DBE 12 são provavelmente quinolinas (Q),
+ benzoquinolinas (BQ) e indenoquinolinas (QI) ou azopirenos (AP), respectivament
+e.
+ E também observou que a abundância relativa de maior componente do grupo
+ DBE aumenta com a maturação térmica, uma vez que as espécies se tornam
+ mais aromáticas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/ouldb.jpg
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama Ternário ilustrando o efeito das mudanças de maturidade na distribuição
+ relativa de DBE 9 (provavelmente carbazóis alquilados), DBE 12 e 15 (provavelme
+nte benzocarbozóis e dibenzocarbazóis alquilados, respectivamente) com o
+ índice de reflectância de vitrinita sobre a amostra.
+ Modificado de (OLDENBURG 
+\shape italic
+et al.
+\shape default
+, 2014).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Já em 2005, Kim 
+\shape italic
+et al.
+\shape default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KimStanfordRodgersEtAl2005"
+literal "false"
+
+\end_inset
+
+, analisou um conjunto de seis óleos geneticamente relacionados que experimentar
+am vários graus de biodegradação anaeróbia subterrânea, analisados por espectrom
+etria de massa de ressonância de íon ciclotron de ultra-alta resolução,
+ pelo uso de ionização por eletropulverização de amostras de óleo bruto.
+ Através de vários métodos de visualização de dados, observou mudanças nas
+ abundâncias relativas desses compostos com o aumento da degradação.
+\end_layout
+
+\begin_layout Standard
+A biodegradação altera a distribuição de hidrocarbonetos saturados e aromáticos
+ por remoção seletiva, enquanto a distribuição de compostos polares de nitrogêni
+o neutro e ácido é alterada por remoção seletiva, preservação e geração.
+ Essas alterações são observadas em todos os níveis de investigação, isto
+ é, entre classes de compostos, série Z, dentro de classes e homólogos alquilado
+s dentro de uma série Z.
+ As espécies O
+\begin_inset Formula $_{1}$
+\end_inset
+
+, 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 3}}$
+\end_inset
+
+, 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 4}}$
+\end_inset
+
+, NO,
+\color black
+ 
+\begin_inset Formula $N_{2}O$
+\end_inset
+
+, 
+\begin_inset Formula $SO_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $SO_{3}$
+\end_inset
+
+ e NS tendem a diminuir, enquanto as espécies 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+, 
+\begin_inset Formula $SO$
+\end_inset
+
+, 
+\begin_inset Formula $S_{2}O$
+\end_inset
+
+
+\color inherit
+ aumentam com o aumento da biodegradação.
+ O aumento nas espécies O2 é mais predominante nos óleos fortemente a severament
+e biodegradados (amostras 4–6 Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abundâncias-relativas-de"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ ) e isto é atribuído à criação de ácidos naftênicos via oxidação parcial
+ de hidrocarbonetos.
+ Essas alterações, induzidas microbianamente, dos compostos polares parece
+ produzir mudanças sistemáticas, sugerindo que a classe NSO selecionada
+ ou as razões de compostos podem ser usadas como índices para avaliar a
+ extensão da biodegradação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/biode_01.jpg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Abundâncias-relativas-de"
+
+\end_inset
+
+Abundâncias relativas de classes de compostos identificados em um conjunto
+ de óleos geneticamente relacionados degradados microbianamente em diferentes
+ graus.
+ O número da amostra corresponde ao Índice de Biodegradação (Peters 
+\shape italic
+et al.
+\shape default
+, 2004).
+ Modificado de Kim 
+\shape italic
+et al.
+
+\shape default
+ (2005).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os ácidos graxos acíclicos diminuem, enquanto Z = 10 espécies de 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+, que correspondem aos ácidos naftênicos de cinco anéis (hopanóico), aumentam
+ em abundância relativa durante os estágios iniciais de biodegradação.
+ O 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+ monocíclico (Z = 2) é enriquecido inicialmente e, em seguida, diminui durante
+ os estágios avançados de biodegradação.
+ As espécies de 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+ correspondentes aos ácidos naftênicos di-, tri- e tetra-cíclicos (Z = 4,
+ 6 e 8) são produzidas preferencialmente durante esses estágios avançados.
+ A proporção de espécies de 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+ acíclicas para 2–4 anéis cíclicos fornece um novo parâmetro para definir
+ o grau de biodegradação.
+ Esse parâmetro é baseado na consistente diminuição dos ácidos acíclicos
+ e aumento em espécies 
+\begin_inset Formula ${\color{black}O}_{{\color{black}2}}$
+\end_inset
+
+ cíclicas com o aumento da biodegradação.
+ Este parâmetro (razão A/C) é então calculado pela soma das magnitudes do
+ pico no espectro de massas de espécies 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+ acíclicas (DBE = 1) dividida pela soma das magnitudes dos ácidos mono-,
+ bi- e tricíclicos (DBE = 2 , 3 e 4, respectivamente) e diminui com aumento
+ da biodegradação.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+A/C=\frac{O_{2}DBE\:1}{O_{2}\sum(DBE\:2\:a\:4)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em 2013, Vaz 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "VazSilvaKlitzkeEtAl2013"
+literal "false"
+
+\end_inset
+
+publicou um estudo focando na classe 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+, analisando um conjunto de óleos brutos da Bacia de Llanos Orientales (Colômbia
+), que foi classificado em termos de níveis de biodegradação usando espectrometr
+ia de massa de ressonância cíclotron de íon de transformada de Fourier (FTICR
+ MS) e análise quimiométrica.
+ A classe 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+, que é composta principalmente de ácidos carboxílicos naftênicos, foi monitorad
+a porque esses constituintes polares do petróleo bruto são conhecidos por
+ serem substancialmente afetados pela atividade microbiana como mostrou
+ Kim 
+\shape italic
+et al.
+
+\shape default
+ (2005).
+ As diferentes análises aplicadas ao perfil de
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+ foram capazes de classificar os óleos brutos em três grupos: biodegradado,
+ em mistura e não biodegradado.
+ A partir das abundâncias relativas da classe de 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+, uma tendência clara na distribuição de ácido poderia ser diretamente correlaci
+onada com a biodegradação: um aumento na abundância de ácidos saturados
+ com baixos valores de equivalente de ligação dupla (DBE) (apesar da redução
+ observada para ácidos graxos com DBE 1 e DBE 2,3 e 4 tendem ter uma abundância
+ relativa maior por conta da biorresistência ), expresso pelo índice A/C.
+\end_layout
+
+\begin_layout Standard
+Porém, o índice A/C não forneceu a ordem adequada dos níveis de biodegradação,
+ no entanto, um bom resultado foi alcançado quando o índice A/C foi ligeiramente
+ modificado.
+ Essa modificação foi feita para levar em consideração os ácidos naftênicos
+ de 4 e 5 anéis, calculando a razão entre DBE 1 e DBE 2-6.
+ 
+\end_layout
+
+\begin_layout Standard
+A partir dos efeitos da atividade microbiana observados, que geram espécies
+ da classe 
+\begin_inset Formula ${\normalcolor O}_{{\normalcolor 2}}$
+\end_inset
+
+ de baixo DBE, e logo deslocando as intensidades em direção esses valores,
+ sugeriu-se um novo parâmetro o índice S/A.
+ Este novo parâmetro é dado pela soma das abundâncias relativas de DBE 1-6
+ para a classe O2 (índice S/A - índice de ácido saturado).
+ Nesse sentido, o índice S/A analisa o esquema de biodegradação a partir
+ dos compostos produzidos e não dos consumidos, conforme estabelecido na
+ classificação de biodegradação típica.
+\end_layout
+
+\begin_layout Standard
+Esta abordagem mostrou-se particularmente útil para preencher espaços em
+ branco na classificação de biodegradação discreta e quando as amostras
+ são realmente compostas de uma mistura de óleos com níveis de biodegradação
+ contrastantes.
+ Os resultados estão de acordo com as previsões baseadas na análise clássica
+ de biomarcadores de hidrocarbonetos.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+S/A=O_{2}\sum(DBE\:1\:a\:6)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+A/C_{modificado}=\frac{O_{2}DBE\:1}{O_{2}\sum(DBE\:2\:a\:6)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Martins
+\shape italic
+ et al.
+
+\shape default
+ (2017) estudou um conjunto de 30 amostras de óleos brutos de bacias brasileiras
+, não relacionados geneticamente e com níveis distintos de biodegradação
+ medidos por parâmetros tradicionais.
+ também utilizou o índice S/A, porém não mostrou-se confiável para avaliar
+ a biodegradação das amostras de óleo.
+ Foi indicado que esta falha para o índice S/A provavelmente está associada
+ ao DBE de 1 (ácido acíclico) componente, cujo parente abundância na verdade
+ diminui com a biodegradação como resultado de sua alta suscetibilidade
+ à degradação microbiana.
+ Foi testado um índice S/A modificado, usando apenas a soma de abundância
+ relativa de DBE de 2−6 para a classe O2.
+ Quando DBE de 1 foi eliminado, o índice S/A modificado dá uma previsão
+ muito melhor dos níveis de biodegradação para as amostras analisadas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MartinsPudenziCruzEtAl2017"
+literal "false"
+
+\end_inset
+
+.
+ Além disso apresentou dois novos parâmetros utilizando a classe do heteroátomo
+ O1 para avaliar a biodegradação, ou seja, dois índices monoaromáticos (MA)
+ 1 e 2, calculados pela relação entre DBE de 4 sobre DBE de 5 (MA1) ou DBE
+ de 7 (MA2) para a classe O1.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+S/A_{modificado}=O_{2}\sum(DBE\:2\:a\:6)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+MA_{1}=\frac{O_{1}DBE\:4}{O_{1}DBE\:5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+MA_{2}=\frac{O_{1}DBE\:4}{O_{1}DBE\:7}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De fato, tanto MA1 quanto MA2 
+\emph on
+versus
+\emph default
+ A/C diminuíram com o aumento da biodegradação, porque os compostos fenólicos
+ e/ou benzílicos com DBE de 4 são mais facilmente degradados por microrganismos,
+ logo estão em maior abundancia em óleos não degradados.
+ De acordo com Kim
+\shape italic
+ et al.
+\shape default
+(2005), os componentes de DBE 4 estão quase ausentes em óleos severamente
+ degradados.
+ No entanto, espécies 
+\begin_inset Formula ${\color{black}O}_{{\color{black}1}}$
+\end_inset
+
+ com maiores valores de DBE tendem a persistir em óleos mais degradados,
+ nos quais DBE 5 e 7 são, em geral, mais abundantes em amostras com níveis
+ mais elevados de biodegradação.
+ De acordo como os autores, os parâmetros MA1 e MA2 só podem ser usados
+ para avaliar a biodegradação até níveis moderados.
+\end_layout
+
+\begin_layout Standard
+Rocha 
+\shape italic
+et al.
+
+\shape default
+ (2018) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SantosRochaPereiraMendoncaFilho2018"
+literal "false"
+
+\end_inset
+
+, analisou óleos brutos lacustres e marinhos de diferentes bacias offshore
+ brasileiras usando FTICR-MS por ionização por eletrospray no modo íon negativo
+ com foco nos compostos polares.
+ Os resultados indicam que os óleos lacustres tendem a ser enriquecidos
+ em compostos 
+\color black
+
+\begin_inset Formula $N_{x}$
+\end_inset
+
+, enquanto os óleos marinhos mostram preferência por compostos 
+\begin_inset Formula $O_{x}$
+\end_inset
+
+, o que estudos anteriores já haviam relatado.
+ As classes heteroatômicas dominantes em óleos crus são 
+\begin_inset Formula $N_{1}$
+\end_inset
+
+, seguido por 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $N_{1}O_{1}$
+\end_inset
+
+ com diferenças notáveis em sua
+\color inherit
+s distribuições entre marinho e lacustre, sugerindo fortemente o controle
+ pelo tipo de querogênio dos compostos heteroatômicos encontrados nesses
+ óleos crus.
+ A matéria orgânica do querogênio Tipo I tem alta razão atômica H/C e baixo
+ conteúdo de oxigênio, enquanto a matéria orgânica do querogênio Tipo II
+ contém maior razão O/C atômica e alta abundância de grupos de ácido carboxílico
+ e grupos éster.
+ Essas diferenças resultam em uma separação clara com base nas espécies
+ polares encontradas em óleos marinhos e lacustres gerados a partir de querógeno
+s Tipo I e Tipo II.
+ Diferenças consideráveis na distribuição DBE das principais classes analisadas
+ entre os óleos crus, permitiu uma eficiente caracterização geoquímica quanto
+ à sua origem.
+ O estudo sugeriu um série de razões para uma análise rápida cruzando os
+ parâmetros em gráficos cartesianos Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Correlações-óleo-óleo-e"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/Rocha et al.jpg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Correlações-óleo-óleo-e"
+
+\end_inset
+
+Correlações óleo-óleo e avaliação geoquímica por gráficos cruzados de parâmetros
+ exclusivos de resultados ESI FTICR-MS negativos (Rocha 
+\shape italic
+et al.
+\shape default
+, 2018).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essas relações foram sugeridas para criar uma rápida avaliação quanto ao
+ ambiente deposicional, considerando os histogramas de distribuição de cada
+ classe.
+ Além disso, os valores de DBE selecionados de 
+\color black
+
+\begin_inset Formula $N_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $N_{1}O_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+
+\color inherit
+ foram escolhidos para refinar a caracterização dos óleos lacustres e marinhos.
+ Para uma rápida correlação óleo-óleo, o gráfico Classe 
+\begin_inset Formula ${\normalcolor NO}$
+\end_inset
+
+ DBE 10 e Classe 
+\color black
+
+\begin_inset Formula $O_{1}$
+\end_inset
+
+
+\color inherit
+ DBE 4 é recomendado para petróleo bruto offshore brasileiro .
+\begin_inset CommandInset citation
+LatexCommand nocite
+key "SantosRochaPereiraMendoncaFilho2019"
+literal "false"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+Indice\:Phenol=\frac{O_{1}\,DBE\:4}{O_{1}\:_{Total}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{1}=\frac{O_{2}\sum(DBE\:1\:a\:7)}{O_{2}\sum(DBE\:1\:a\:7)+O_{2}\sum(DBE\:8\:a\:25)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{2}=\frac{O_{1}\sum(DBE\:4\:a\:10)}{O_{1}\sum(DBE\:4\:a\:10)+O_{2}\sum(DBE\:11\:a\:23)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{3}=NO\,DBE\:10
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{4}=O_{1}\,DBE\:4
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{5}=\frac{N\sum(DBE\:6\:a\:10)}{N\sum(DBE\:6\:a\:10)+N\sum(DBE\:10\:a\:27)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{6}=\frac{NO\sum(DBE\:2\:a\:14)}{NO\sum(DBE\:6\:a\:10)+NO\sum(DBE\:15\:a\:29)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{7}=\frac{O_{1}\sum(DBE\:4\:a\:12)+O_{2}\,DBE\:12}{O_{1}\sum(DBE\:4,\,12,\,14,\,16)+O_{2}\sum(DBE\:12,\,13)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+R_{8}=\frac{N\sum(DBE\:8,\,9)+NO\sum(DBE\:9,\,10)}{N\sum(DBE\:8,\,9,\,13,\,16)+NO\sum(DBE\:9,\,10\,19,\,2)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com base na distribuição e variações dos compostos NSO ácidos nos folhelhos
+ negros Irati e folhelhos Serra Alta, Laercio 
+\shape italic
+et al.
+
+\shape default
+ (2021), sugeriu também oito novos parâmetros baseados em dados ESI (-)
+ FT-ICR-MS para avaliar as mudanças das condições paleoambientais.
+ Em geral, todos os parâmetros refletem as mudanças do paleoambiente durante
+ a deposição dos folhelhos negros Irati.
+ Todos os valores dos parâmetros se correlacionam bem com as variações dos
+ parâmetros do biomarcador de hidrocarbonetos e seu significado segundo
+ o autor 
+\begin_inset CommandInset citation
+LatexCommand nocite
+key "MartinsSchulzNoahEtAl2021"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+\nicefrac{C_{27}}{C_{28}}=O_{1}\,DBE\:4\left(\frac{C_{27}}{C_{28}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+\nicefrac{C_{27}}{C_{28}}=O_{1}\,DBE\:5\left(\frac{C_{27}}{C_{28}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O 
+\color black
+
+\begin_inset Formula $\nicefrac{Par}{Ímpar_{FA}}$
+\end_inset
+
+ e 
+\begin_inset Formula $OEP_{(FA)}$
+\end_inset
+
+
+\color inherit
+ são geralmente mais elevados nos folhelhos pretos Irati no perfil de Amaral
+ Machado, como um reflexo do maior conteúdo de matéria orgânica terrígena
+ neste local, que era um ambiente deposicional raso e mais proximal (Martins
+ 
+\shape italic
+et al
+\shape default
+., 2021).
+ Além disso, também os folhelhos da Serra Alta apresentam valores elevados
+ dos parâmetros Even / OddFA e OEPFA, de acordo com uma grande entrada de
+ plantas terrestres (Martins 
+\shape italic
+et al
+\shape default
+., 2021).
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+\nicefrac{Par}{Ímpar_{FA}}=\frac{O_{2}\,DBE\:1\sum(C_{20}\:a\:C_{36})}{O_{2}\,DBE\:1\sum(C_{19}\:a\:C_{35})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+OEP_{(FA)}=\frac{O_{2}\,DBE\:1\left(C_{22}+6(C_{28})+C_{26}\right)}{O_{2}\,DBE\:1\left(4(C_{23})+4(C_{25})+C_{26}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para quantificar as diferentes porções das misturas de matéria orgânica
+ por meio de ácidos graxos, o parâmetro
+\color black
+
+\begin_inset Formula $TAR_{(FA)}$
+\end_inset
+
+
+\color inherit
+ foi calculado de acordo com Bourbonniere e Meyers (1996).
+ Este parâmetro inclui as quantidades dos ácidos graxos 
+\color black
+
+\begin_inset Formula $C_{24}$
+\end_inset
+
+, 
+\begin_inset Formula $C_{26}$
+\end_inset
+
+ e 
+\begin_inset Formula $C_{28}$
+\end_inset
+
+
+\color inherit
+ de cadeia longa e linear com alto peso molecular, que são componentes dominante
+s dos revestimentos cerosos das folhas superiores das plantas e pólen (Rieley
+\shape italic
+ et al.
+\shape default
+, 1991;
+\shape italic
+ Duan et al.
+\shape default
+, 1997), enquanto os ácidos graxos de cadeia curta 
+\color black
+
+\begin_inset Formula $C_{12}$
+\end_inset
+
+, 
+\begin_inset Formula $C_{14}$
+\end_inset
+
+ e 
+\begin_inset Formula $C_{16}$
+\end_inset
+
+
+\color inherit
+ ocorrem em todas as plantas e também são componentes lipídicos dominantes
+ de algas (Cranwell, 1973).
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+TAR_{(FA)_{Par}}=\frac{O_{2}\,DBE\:1\left(C_{24}+C_{26}+C_{28}\right)}{O_{2}\,DBE\:1\left(C_{12})+C_{14}+C_{16}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+TAR_{(FA)_{Ímpar}}=\frac{O_{2}\,DBE\:1\left(C_{27}+C_{29}+C_{31}\right)}{O_{2}\,DBE\:1\left(C_{15}+C_{17}+C_{19}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com base na distribuição de CN do presumível esteranóico ( DBE 5, classe
+ O2) e ácidos hopanóicos (DBE 6, classe 
+\color black
+
+\begin_inset Formula $O_{2}$
+\end_inset
+
+
+\color inherit
+), e sua conhecida descarboxilação para gerar esteranos e hopanos (Farrimond
+ 
+\shape italic
+et al.
+\shape default
+, 2002), o índice de ácido hopanóico 
+\begin_inset Formula ${\normalcolor C}_{{\normalcolor 36}}$
+\end_inset
+
+ e a relação ácido hopanóico / esteranóico proposta neste trabalho melhoram
+ a avaliação das mudanças no paleoambiente deposicional dos folhelhos negros
+ Irati por compostos polares.
+ Ambos os índices são mais elevados para a hipersalina marinha.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+Íncice\,Ácido\,Hopanóico\:=\frac{O_{2}\,DBE\:6\left(C_{36}\right)}{O_{2}\,DBE\:6\left(C_{31}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{equation}
+\nicefrac{Hopano}{Ácido\,Esteranóico}=\frac{O_{2}\,DBE\:6\left(C_{31}\right)}{O_{2}\,DBE\:5\left(C_{28}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O uso de ESI FTICR-MS no modo negativo como ferramenta geoquímica pode fornecer
+ informações adicionais, além daquelas obtidas com métodos geoquímicos empregado
+s atualmente, resultando na compreensão total da composição do petróleo
+ bruto.
+\end_layout
+
+\begin_layout Section
+Identificação de pacotes – assuntos
+\end_layout
+
+\begin_layout Itemize
+Geoquímica: utilizada para fornecer e interpretar os dados.
+\end_layout
+
+\begin_layout Itemize
+Petroleômica: utilizada para fornecer os dados experimentais.
+ 
+\end_layout
+
+\begin_layout Subsection
+Diagrama de pacotes – assuntos
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Pacotes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ representa um diagrama de pacotes simplificado, para o programa desenvolvido.
+ Nele estão contidos os pacotes (assuntos) descritos anteriormente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/class diagram.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-Pacotes"
+
+\end_inset
+
+Diagrama de Pacotes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

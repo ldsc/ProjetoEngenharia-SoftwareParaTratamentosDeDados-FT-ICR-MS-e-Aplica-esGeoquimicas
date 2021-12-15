@@ -1,0 +1,1363 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
+\maintain_unincluded_children false
+\language brazilian
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement ph
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Especificação}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Especificação
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Concepção
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+especificação
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+É apresentado neste capítulo do projeto de engenharia a concepção e a especifica
+ção do sistema a ser modelado e desenvolvido.
+\end_layout
+
+\begin_layout Section
+Especificação do programa: descrição dos requisitos
+\end_layout
+
+\begin_layout Standard
+A modelagem foi criada com a intenção de aumentar a capacidade interpretativa
+ dos dados gerados por técnicas de espectrometria de massas de alta resolução
+ e exatidão, visto que na petroleômica, os espectros de amostras de petróleo
+ são complexos e trazem muitas informações relevantes que precisam de um
+ processamento específico para a obtenção de dados.
+ Abaixo descreve-se alguns requisitos do programa:
+\end_layout
+
+\begin_layout Itemize
+Parâmetros petroleômicos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A partir do arquivo de entrada, o software irá calcular DBE (do inglês,
+ 
+\shape italic
+Double bond equivalent
+\shape default
+ ) e número de carbono para cada classe, criando novas colunas de dados
+ no arquivo que será salvo no diretório.
+ 
+\end_layout
+
+\begin_layout Itemize
+Com o arquivo gerado na etapa anterior, o usuário poderá solicitar o cálculo
+ da abundância relativa para todas as classes das amostras de óleo.
+ 
+\end_layout
+
+\begin_layout Itemize
+O usuário poderá solicitar o cálculo da distribuição do número de DBE para
+ cada classe heteroatômica.
+\end_layout
+
+\begin_layout Itemize
+O usuário pode solicitar a análise gráfica de DBE 
+\emph on
+versus
+\emph default
+ o número de carbono (importante para elucidar como estão distribuídos os
+ compostos em termos de insaturação/ciclização).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Parâmetros geoquímicos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Baseado nos dados pré-processados e na ciência petroleômica, o software
+ disponibilizará a execução de parâmetros geoquímicos para analisar a biodegrada
+ção, maturidade térmica, ambiente deposicional.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Os gráficos serão gerados utilizando a biblioteca de plotagem C++ 
+\begin_inset Quotes eld
+\end_inset
+
+matplotlib-cpp
+\begin_inset Quotes erd
+\end_inset
+
+ ou Gnuplot disponível no GitHub ou software externo ainda a definir.
+ 
+\end_layout
+
+\begin_layout Itemize
+O conceito de programação orientada a objeto será utilizado no desenvolvimento
+ do software.
+\end_layout
+
+\begin_layout Itemize
+A licença é a GPL 2.0.
+\end_layout
+
+\begin_layout Subsection
+Definições da interface
+\end_layout
+
+\begin_layout Standard
+O software possui interface no modo texto, devido a interação simplificada
+ entre usuário e software, oferecendo respostas instantâneas.
+ Além disso, é multiplataforma, ou seja, pode ser executado em GNU/LINUX,
+ UNIX, Mac Ox e Windows.
+\end_layout
+
+\begin_layout Subsection
+Entrada e saída de dados
+\end_layout
+
+\begin_layout Standard
+Para entrada de dados, o usuário deverá criar um diretório intitulado de
+ 
+\begin_inset Quotes eld
+\end_inset
+
+input
+\begin_inset Quotes erd
+\end_inset
+
+ onde serão colocados os arquivos que o programa irá ler para executar os
+ cálculos.
+ Para a saída de dados, deve ser criado um diretório intitulado de 
+\begin_inset Quotes eld
+\end_inset
+
+output
+\begin_inset Quotes erd
+\end_inset
+
+, onde o programa salvará os arquivos gerados.
+ De modo geral, a entrada de dados será feita via arquivo de disco e via
+ teclado.
+ A saída de dados irá depender do tipo de teste selecionado, podendo ser
+ arquivo de disco ou gráfico.
+ Deve-se observar que o arquivo de entrada precisa que os dados do FT-ICR
+ MS já estejam calibrados e com suas fórmulas químicas atribuídas, como
+ pode ser exemplificado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Exemplo-do-arquivo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ A figura ilustra um exemplo meramente ilustrativo dos resultados das análises
+ feitas por FT-ICR MS, pois as análises reais podem apresentar mais de 20
+ mil compostos.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/Arquivo txt.jpg
+	lyxscale 70
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Exemplo-do-arquivo"
+
+\end_inset
+
+Exemplo do arquivo txt* que o usuário irá fornecer como entrada inicial
+ ao software.
+ A coluna 
+\begin_inset Quotes eld
+\end_inset
+
+class
+\begin_inset Quotes erd
+\end_inset
+
+ representa as classes dos compostos identificados, as colunas 
+\begin_inset Quotes eld
+\end_inset
+
+Experimental
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Recalibrated
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Theoretical
+\begin_inset Quotes erd
+\end_inset
+
+ representam os espectros m/z experimental, recalibrado e o teórico.
+ Seguindo do erro em ppm, sua fórmula química e a intensidade.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Especificação do software: descrição dos requisitos
+\end_layout
+
+\begin_layout Subsection
+Nome do sistema-produto 
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="middle" width="2.2cm">
+<column alignment="block" valignment="middle" width="10.7cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\noindent
+SLAP-
+\shape italic
+MS
+\shape default
+ (Software Livre de Aplicação Petroleômica - 
+\shape italic
+Mass Spectrometry
+\shape default
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Componentes principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\noindent
+Processar os dados finais de espectrometria de massa de alta resolução e
+ interpretá-los, e exibir os dados em gráficos, tabelas e diagramas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Missão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Interpretar os dados, calcular e organizar as informações para produzir
+ tabelas, gráficos, diagramas e análises geoquímicas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Requisitos funcionais
+\end_layout
+
+\begin_layout Standard
+Apresenta-se a seguir os requisitos funcionais:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="block" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-01
+\end_layout
+
+\end_inset
+</cell>
+<cell mroffset="2cm" alignment="block" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O usuário tem liberdade para trabalhar com mais de uma amostra , podendo
+ escolher classes heteroatômicas de amostras diferentes para gerar gráficos
+ comparativos.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O programa permite comparação gráfica de diferentes amostras de óleo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Permite o carregamento de arquivos criados pelo software.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Permite a escolha das classes heteroatômicas que deseja trabalhar dentro
+ de cada amostra.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O usuário tem liberdade para escolher os dados que deseja exportar.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O usuário pode plotar seus resultados em um gráfico, que pode ser salvo
+ como imagem ou ter seus dados exportados como texto em arquivo txt*.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Requisitos não funcionais
+\end_layout
+
+\begin_layout Standard
+Apresenta-se a seguir os requisitos não funcionais:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="15cm">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RNF-01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A maior parte do processamento do arquivo de entrada ocorre através da manipulaç
+ão de vetores, com métodos como push_back, mapa e objetos/ponteiros, entre
+ outros.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RNF-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O programa é multiplataforma, podendo ser executado em 
+\emph on
+Windows
+\emph default
+, 
+\emph on
+GNU/Linux
+\emph default
+ ou 
+\emph on
+Mac
+\emph default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Casos de uso do software
+\end_layout
+
+\begin_layout Standard
+A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-uso"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ mostra a descrição do caso de uso do programa.
+ Nela estão descritas todas as etapas realizadas no funcionamento do programa.
+ Observa-se que se o usuário escolher uma opção não correspondente a nenhuma
+ das alternativas para saída do programa, um exemplo de cenário alternativo
+ - a frase 
+\begin_inset Quotes eld
+\end_inset
+
+Opção inválida!
+\begin_inset Quotes erd
+\end_inset
+
+- irá aparecer na tela, e o usuário deverá selecionar outra opção.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Caso de uso
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Caso-de-uso"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="10cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Nome do caso de uso:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Processamento e interpretação de dados FT-ICR MS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Resumo/descrição:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Processar os dados brutos do FT-ICR MS e realizar a interpretação através
+ da petroleômica e parâmetros geoquímicos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Etapas:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1.Criar o diretório 
+\begin_inset Quotes eld
+\end_inset
+
+input
+\begin_inset Quotes erd
+\end_inset
+
+ e adicionar o arquivo a ser processado.
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+2.Criar o diretório 
+\begin_inset Quotes eld
+\end_inset
+
+output
+\begin_inset Quotes erd
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+3.Escolher os parâmetros para interpretação petroleômica;
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+4.
+ Escolha os parâmetros para interpretação geoquímica;
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+5.
+ Gerar relatório final.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Cenários alternativos:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Um cenário alternativo envolve uma entrada errada do usuário, entrando com
+ um arquivo não suportado ou escolhendo um número acima de 4 (que não representa
+ nenhuma das opções de saída do programa).
+ Neste caso, a frase 
+\begin_inset Quotes eld
+\end_inset
+
+Opção inválida!
+\begin_inset Quotes erd
+\end_inset
+
+ aparece na tela.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ 
+\end_layout
+
+\begin_layout Subsection
+Diagrama de caso de uso geral 
+\end_layout
+
+\begin_layout Standard
+O diagrama de caso de uso geral do programa é apresentado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-caso1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, este diagrama representa a idealização no inicio antes mesmo de iniciarmos
+ a programação.
+ Observa-se que o usuário deve fornecer um aquivo de entrada que contenha
+ os dados a serem processados.
+ Este processamento irá calcular o número de moléculas de carbono, hidrogênio,
+ nitrogênio e DBE, e os resultados serão inseridos no arquivo de entrada
+ em quatro novas colunas.
+ O arquivo será salvo no diretório e aberto novamente.
+ Após este processamento inicial, o usuário deve escolher entre análise
+ petroleômica ou geoquímica, e, em seguida, indicar o parâmetro que deseja
+ executar, selecionando uma opção disponível.
+ De posse dos resultados, eles serão analisados e interpretados.
+ Já na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-caso"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ podemos observar um diagrama criado quando já tínhamos o código finalizado.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/use case diagram geral1_1.png
+	lyxscale 25
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-caso1"
+
+\end_inset
+
+Diagrama de caso de uso genérico do processamento e interpretação de dados
+ FT-ICR MS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/use case diagram.png
+	lyxscale 20
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-caso"
+
+\end_inset
+
+Diagrama de caso de uso completo gerado após o fim do programa.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagrama de caso de uso específico
+\end_layout
+
+\begin_layout Standard
+São apresentados nas Figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-caso-especifico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-caso-esp2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, os diagramas de caso de uso específico do programa para cada parâmetro
+ disponível que se deseja-se trabalhar.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-caso-especifico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ detalha o caso de uso específico que calcula os parâmetros básicos da petroleôm
+ica, e o usuário deverá escolher a opção que desejar para sua amostra de
+ óleo.
+ O mesmo ocorre na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-caso-esp2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, neste caso porém, irá calcular os parâmetros geoquímicos com base nos
+ dados da petroleômica.
+ Então, os resultados são gerados e informados ao usuário para que seja
+ possível fazer a análise.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/use case diagram geral1.png
+	lyxscale 30
+	scale 32
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-caso-especifico"
+
+\end_inset
+
+Diagrama de caso de uso específico: Parâmetros geoquímicos.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename imagens/cadode uso especifico2.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-caso-esp2"
+
+\end_inset
+
+Diagrama de caso de uso específico: Parâmetros petroleômicos.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
