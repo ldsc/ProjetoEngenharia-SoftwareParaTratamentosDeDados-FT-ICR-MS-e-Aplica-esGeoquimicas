@@ -1,0 +1,69 @@
+
+* Nome do Software (ou Biblioteca):
+- Software para tratamentos de dados FT-ICR MS e aplicações geoquímicas
+
+* Resumo e/ou informação extra: 
+- Facilitar o uso da petroleômica.
+– Calcular o número de carbono, hidrogênio e nitrogênio.
+– Calcular a distribuição heteroatômica para cada amostra.
+– Calcular o número de DBE e sua distribuição para cada classe heteroatômica.
+– Calcular a distribuição do número de carbono por DBE para cada classe hete-
+roatômica.
+– Calcular parâmetros geoquímicos com os dados petroleômicos.
+– Plotar gráficos e diagramas.
+– Modelagem estática do software (diagramas de caso de uso, pacotes e classes).
+– Modelagem dinâmica do software (desenvolver algorítimos e diagramas exem-
+plificando os fluxos de processamento).
+– Simular (realizar simulações para teste do software desenvolvido)
+– Implementar Manual simplificado de uso do software.
+
+* Versão: 
+- 1.0.
+
+* Data:
+- 2021/2 - segundo semestre.
+  
+* Autor de Contato:
+- André Duarte Bueno <andreduartebueno@gmail.com>
+
+* Lista dos Autores:
+- Jimmy Ribeiro Barreto
+- Lucas Ignácio Hespanhol
+- André Duarte Bueno <andreduartebueno@gmail.com>
+
+* Áreas de pesquisa vinculadas: 
+- Modelagem Matemática Computacional
+- Geoquímica
+
+* Vinculo com: 
+- Trabalho da disciplina de programação prática.
+
+* Paradigmas: 
+- POO - Programação Orientada a Objeto (códigos em C++)
+
+* Tipo de Interface: 
+- Terminal e gráfica (gnuplot).
+
+* Plataformas Suportadas: 
+- Windows e GNU/Linux e Mac OS X (não testada).
+
+* Linguagens Utilizadas: 
+- C++ 11.
+
+* Bibliotecas Utilizadas (dependências):
+- CGnuplot - https://github.com/ldsc/CGnuplot
+
+* Softwares utilizados (dependências)
+- gnuplot http://www.gnuplot.info/
+
+* Tipo de Licença:
+- GPL
+- Entre em contato com o Prof. André Duarte Bueno
+  andreduartebueno@gmail.com
+  para que o mesmo gere um novo projeto no github do ldsc para que você (e sua equipe) possam trabalhar na nova versão.
+- Se este projeto tem como número de versão 1.0 a nova versão deverá ser 2.0 e assim sucessivamente.
+- Os nomes dos autores originais deve ser preservada na nova versão, ou seja, adicione a informação do número da versão, os nomes dos membros da nova equipe, mas jamais apague os nomes dos autores originais (isto seria plágio).
+- Na descrição do projeto informe que trata-se de uma nova versão, que tem como base a versão anterior e DESTAQUE COM CLAREZA E OBJETIVIDADE QUAIS AS NOVIDADES DA NOVA VERSÃO.
+  
+* Links:
+
